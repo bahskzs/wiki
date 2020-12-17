@@ -1,0 +1,26 @@
+Atlas报错
+
+1.npm install
+ $ npm set SKIP_SASS_BINARY_DOWNLOAD_FOR_CI = true
+   $ npm set SKIP_NODE_SASS_TESTS = true
+之后使用命令清除缓存，再重新安装 sass-loader
+
+   $ npm cache clean --force
+   $ npm install sass-loader --dev-save
+
+
+2.Too many files with unapproved license
+mvn clean install -DskipTests -Drat.skip=true
+
+
+3. python2 Error: not found: python2
+
+npm install -g node-gyp
+npm config set python python2.7
+npm config set msvs_version 2017
+npm install --global --production windows-build-tools
+npm cache clean --force
+
+
+export MAVEN_OPTS="-Xms2g -Xmx2g" mvn clean package -DskipTests -Drat.skip=true -Pdist
+
